@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false">
+
+    <ScrollView
+        android:layout_above="@+id/buttons"
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_below="@+id/voltage"
+                    android:layout_weight="7"
+                    android:id="@+id/current"
+                    android:inputType="numberDecimal"
+                    android:padding="10dp"
+                    android:background="@drawable/edittext_white_background"
+                    android:hint="Current(amps)"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="5dp"/>
+
+                <EditText
+                    android:id="@+id/voltage"
+                    android:inputType="numberDecimal"
+                    android:padding="10dp"
+                    android:background="@drawable/edittext_white_background"
+                    android:hint="Voltage(volts)"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+
+
+            <EditText
+                android:layout_below="@+id/current"
+                android:id="@+id/resistance"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:background="@drawable/edittext_white_background"
+                android:hint="Resistance(ohms)"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="5dp"/>
+
+            <EditText
+                android:layout_below="@+id/resistance"
+                android:id="@+id/power"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:background="@drawable/edittext_white_background"
+                android:hint="Power(watts)"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="5dp"/>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:elevation="5dp"
+        android:id="@+id/buttons"
+        android:layout_alignParentBottom="true"
+        android:weightSum="3"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/save"
+            android:background="@color/colorPrimary"
+            android:text="Save"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/reset"
+            android:background="@color/red"
+            android:text="Reset"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/solve"
+            android:background="@color/colorAccent"
+            android:text="Solve"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
