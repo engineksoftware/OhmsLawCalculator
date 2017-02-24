@@ -1,6 +1,8 @@
 package enginek.ohmslawcalculator;
 
 import android.app.Activity;
+import android.provider.ContactsContract;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -33,10 +36,14 @@ public class CalculatorFragment extends Fragment {
 
     private final int sdk = android.os.Build.VERSION.SDK_INT;
 
+    private DatabaseHandler db;
+
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(R.layout.calculator_fragment, container, false);
         context = view.getContext();
+
+        db = new DatabaseHandler(context);
 
         //These values are used to see if three set values are set
         powerSet = false;
@@ -205,6 +212,25 @@ public class CalculatorFragment extends Fragment {
                 power.setText("");
 
 
+            }
+        });
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(volatageSet && currentSet && resistanceSet && powerSet){
+                    Calculation calculation = new Calculation();
+                    calculation.setVoltage(Float.parseFloat(voltage.getText().toString()));
+                    calculation.setCurrent(Float.parseFloat(current.getText().toString()));
+                    calculation.setResistance(Float.parseFloat(resistance.getText().toString()));
+                    calculation.setPower(Float.parseFloat(power.getText().toString()));
+
+                    db.addCalculation(calculation);
+
+                    Toast.makeText(context, "Saved!", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(context, "All values must be known before you save.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
