@@ -1,5 +1,6 @@
 package enginek.ohmslawcalculator;
 
+import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -8,6 +9,8 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -210,6 +213,11 @@ public class CalculatorFragment extends Fragment {
 
     //Solves for the unknowns variables
     private void solve(int isntSet){
+
+        //Hides the keyboard when pressed
+        InputMethodManager input = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        input.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
+
         //Resets all the background to the non highlighted ones
         voltage.setBackgroundResource(R.drawable.edittext_white_background);
         current.setBackgroundResource(R.drawable.edittext_white_background);

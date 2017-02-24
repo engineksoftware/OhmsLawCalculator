@@ -14,62 +14,155 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <LinearLayout
+                android:layout_below="@+id/voltageLayout"
+                android:weightSum="4"
+                android:orientation="horizontal"
+                android:id="@+id/currentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
                 <EditText
-                    android:layout_below="@+id/voltage"
-                    android:layout_weight="7"
+                    android:layout_weight="3"
                     android:id="@+id/current"
                     android:inputType="numberDecimal"
                     android:padding="10dp"
                     android:background="@drawable/edittext_white_background"
-                    android:hint="Current(amps)"
-                    android:layout_marginTop="20dp"
+                    android:hint="Current"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:elevation="5dp"/>
+                    android:elevation="5dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/currentText"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:text="Amps"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="horizontal"
+                android:id="@+id/voltageLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <EditText
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="3"
                     android:id="@+id/voltage"
                     android:inputType="numberDecimal"
                     android:padding="10dp"
                     android:background="@drawable/edittext_white_background"
-                    android:hint="Voltage(volts)"
-                    android:layout_width="match_parent"
+                    android:hint="Voltage"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:elevation="5dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"/>
 
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/voltText"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:text="Volts"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
 
-            <EditText
-                android:layout_below="@+id/current"
-                android:id="@+id/resistance"
-                android:inputType="numberDecimal"
-                android:padding="10dp"
-                android:background="@drawable/edittext_white_background"
-                android:hint="Resistance(ohms)"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="5dp"/>
+            </LinearLayout>
 
-            <EditText
-                android:layout_below="@+id/resistance"
-                android:id="@+id/power"
-                android:inputType="numberDecimal"
-                android:padding="10dp"
-                android:background="@drawable/edittext_white_background"
-                android:hint="Power(watts)"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+            <LinearLayout
+                android:layout_below="@+id/currentLayout"
+                android:weightSum="4"
+                android:orientation="horizontal"
+                android:id="@+id/resistanceLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="5dp"/>
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_weight="3"
+                    android:id="@+id/resistance"
+                    android:inputType="numberDecimal"
+                    android:padding="10dp"
+                    android:background="@drawable/edittext_white_background"
+                    android:hint="Resistance"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:elevation="5dp"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/resistanceText"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:text="Ohms"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_below="@+id/resistanceLayout"
+                android:weightSum="4"
+                android:orientation="horizontal"
+                android:id="@+id/powerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_weight="3"
+                    android:id="@+id/power"
+                    android:inputType="numberDecimal"
+                    android:padding="10dp"
+                    android:background="@drawable/edittext_white_background"
+                    android:hint="Power"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:elevation="5dp"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/powerText"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:text="Watts"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
 
 
         </RelativeLayout>
