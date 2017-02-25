@@ -59,7 +59,21 @@ public class SavedFragment extends ListFragment {
                     if(!choosing){
                         createDialog();
                     }else{
-                        //Delete the selected calculations
+                        for(int x = 0; x < chosenList.size(); x ++){
+                            db.deleteCalculation(calculations.get(chosenList.get(x)).getId());
+                        }
+
+                        choosing = false;
+                        delete.setText("DELETE ALL");
+                        select.setText("SELECT");
+
+                        updateAdapter();
+
+                        chosenList.clear();
+
+                        for(int x = 0; x < calculations.size(); x++){
+                            getListView().getChildAt(x).findViewById(R.id.layout).setBackgroundResource(R.drawable.edittext_white_background);
+                        }
                     }
                 }else{
                     Toast.makeText(context, "There's nothing to delete.", Toast.LENGTH_SHORT).show();
@@ -139,9 +153,7 @@ public class SavedFragment extends ListFragment {
             hideKeyboard();
 
             if(adapter != null){
-                adapter.updateList();
-                calculations.clear();
-                calculations = db.getCalculations();
+                updateAdapter();
             }
 
         }
@@ -179,7 +191,7 @@ public class SavedFragment extends ListFragment {
 
     }
 
-    public void createDialog(){
+    private void createDialog(){
         //Creates dialog using custom layout
         final Dialog dialog = new Dialog(view.getContext());
         dialog.setContentView(R.layout.delete_dialog);
@@ -192,8 +204,7 @@ public class SavedFragment extends ListFragment {
             @Override
             public void onClick(View v) {
                 db.deleteAll();
-                adapter.updateList();
-                calculations = db.getCalculations();
+                updateAdapter();
                 dialog.dismiss();
             }
         });
@@ -205,13 +216,12 @@ public class SavedFragment extends ListFragment {
             }
         });
 
-        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-
-            }
-        });
-
         dialog.show();
+    }
+
+    private void updateAdapter(){
+        adapter.updateList();
+        calculations.clear();
+        calculations = db.getCalculations();
     }
 }
