@@ -2,10 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:clipToPadding="false">
 
     <ScrollView
-        android:layout_above="@+id/buttons"
+        android:layout_above="@+id/adviewLayout"
         android:fillViewport="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -168,6 +169,24 @@
         </RelativeLayout>
 
     </ScrollView>
+
+    <LinearLayout
+        android:layout_above="@+id/buttons"
+        android:id="@+id/adviewLayout"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/ad_unit_id">
+        </com.google.android.gms.ads.AdView>
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:elevation="5dp"

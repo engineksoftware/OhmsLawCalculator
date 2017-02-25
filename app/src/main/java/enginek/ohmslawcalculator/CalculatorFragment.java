@@ -1,8 +1,6 @@
 package enginek.ohmslawcalculator;
 
 import android.app.Activity;
-import android.provider.ContactsContract;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -11,13 +9,12 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 /**
  * Created by Joseph Kessler on 2/22/2017.
@@ -38,12 +35,18 @@ public class CalculatorFragment extends Fragment {
 
     private DatabaseHandler db;
 
+    private AdView adView;
+    private AdRequest request;
+
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(R.layout.calculator_fragment, container, false);
         context = view.getContext();
 
         db = new DatabaseHandler(context);
+        adView = (AdView) view.findViewById(R.id.adView);
+        request = new AdRequest.Builder().build();
+        adView.loadAd(request);
 
         //These values are used to see if three set values are set
         powerSet = false;
